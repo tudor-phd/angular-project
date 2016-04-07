@@ -1,7 +1,7 @@
 'use strict';
 var myApp = angular.module('myApp',[]);
 
-      myApp.controller('dataController', function($http, $scope)
+      myApp.controller('dataController', function($http, $scope, MainService)
 	{  
 
 		var romoveButton = document.getElementById('removeButton');
@@ -17,7 +17,7 @@ var myApp = angular.module('myApp',[]);
 	    $scope.buttonsText();
 
 
-		$http.get(localURL)
+		MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 20);
@@ -27,7 +27,7 @@ var myApp = angular.module('myApp',[]);
 	      });
 
 	      $scope.loadRows1 = function(){
-	      	$http.get(localURL)
+	      	MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 20);
@@ -38,7 +38,7 @@ var myApp = angular.module('myApp',[]);
 	  }
 
 	      $scope.loadRows2 = function(){
-	      	$http.get(localURL)
+	      	MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 100);
@@ -49,7 +49,7 @@ var myApp = angular.module('myApp',[]);
 	  }
 
 	       $scope.loadRows3 = function(){
-	      	$http.get(localURL)
+	      	MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 250);
@@ -60,7 +60,7 @@ var myApp = angular.module('myApp',[]);
 	  }
 
 	       $scope.loadRows4 = function(){
-	      	$http.get(localURL)
+	      	MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 500);
@@ -71,7 +71,7 @@ var myApp = angular.module('myApp',[]);
 	  }
 
 	       $scope.loadRows5 = function(){
-	      	$http.get(localURL)
+	      	MainService.getServerData()
 	      .success(function(results) { 
 	      	$scope.cleanInput();
 	      	$scope.results = results.slice(0, 1000);
