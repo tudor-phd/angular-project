@@ -17,7 +17,7 @@
         return serverPromise;
       }
 
-      serverPromise = $http({method: 'GET', url: "https://raw.githubusercontent.com/Evo-Forge/ui-test/master/src/resources/MOCK_DATA_1000.json" 
+      serverPromise = $http({method: 'GET', url: localURL
       });
 
       return serverPromise;
