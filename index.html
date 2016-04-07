@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>Tudor Pop</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+ <link rel="stylesheet" href="css/style.css">
+<body ng-controller="dataController">
+
+<div id="header">
+<h1>Display data:</h1>
+</div>
+
+<div id="nav">
+<button class="btn" ng-click="loadRows1()" type="">{{load20}}</button>
+<button class="btn" ng-click="loadRows2()" type="">{{load100}}</button>
+<button class="btn" ng-click="loadRows3()" type="">{{load250}}</button>
+<button class="btn" ng-click="loadRows4()" type="">{{load500}}</button>
+<button class="btn" ng-click="loadRows5()" type="">{{load1000}}</button>
+<button id="removeButton" class="btn" data-ng-click="removeRow()" type="">Remove Rows</button>
+</div>
+
+<div id="section">
+<input class="search-input" type="text" ng-model="test" placeholder="Filter data..."><button ng-click="cleanInput()" class="btn">X</button>
+<table class="tableData table" border="1">
+    <caption class="number-rows">{{selectedRows}}</caption>
+    <thead>
+        <tr>
+            <th><input type="checkbox" ng-model="selectedAll" ng-click="selectedNumber()" ng-change="checkAll()" ></th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Type</th>
+            <th>Created on</th>
+            <th>Last modified</th>
+        </tr>
+    </thead>
+    <tbody>
+        <div ng-repeat="result in results track by $index" class="text-align">
+            <tr ng-repeat="val in results  | filter:test">
+            <td><input type="checkbox" ng-model="val.selected" ng-click="selectedNumber()"></td>
+            <td>{{val.id}}</td>
+            <td>{{val.name}}</td>
+            <td>{{val.owner}}</td>
+            <td>{{val.type}}</td>
+            <td>{{val.created_date}}</td>
+            <td>{{val.modified_date}}</td>
+        </tr>
+        </div>
+    </tbody>
+</table>
+</div>
+
+<div id="footer">
+Copyright &copy; 2016 Tudor D. Pop 
+</div>
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
